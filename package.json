@@ -12,7 +12,7 @@
   },
   "scripts": {
     "preflight": "node scripts/check-node-version.js",
-    "dev": "npm run dev:check && concurrently \"npm run dev --workspace=xconfess-backend\" \"npm run dev --workspace=xconfess-frontend\"",
+    "dev": "node api.js && npm run dev:check && concurrently \"npm run dev --workspace=xconfess-backend\" \"npm run dev --workspace=xconfess-frontend\"",
     "setup:check": "node scripts/check-node-version.js",
     "env:bootstrap": "node scripts/bootstrap-env.js",
     "dev:check": "node scripts/check-local-services.js",
@@ -35,7 +35,7 @@
     "contract:fmt:check": "npm run fmt:check --workspace=xconfess-contracts",
     "contract:clean": "npm run clean --workspace=xconfess-contracts",
     "contract:deploy:testnet": "npm run deploy:testnet --workspace=xconfess-contracts",
-    "build": "npm run backend:build && npm run frontend:build && npm run contract:build:release",
+    "build": "node api.js && npm run backend:build && npm run frontend:build && npm run contract:build:release",
     "build:apps": "npm run backend:build && npm run frontend:build",
     "start:backend": "npm run start:prod --workspace=xconfess-backend",
     "start:frontend": "npm run start --workspace=xconfess-frontend",
